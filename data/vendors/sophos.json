@@ -2,7 +2,7 @@
   "id": "sophos-zap",
   "vendor": "Sophos",
   "tool_name": "SophosZap",
-  "official_docs_url": "https://support.sophos.com/support/s/article/KBA-000005647",
+  "official_docs_url": "https://support.sophos.com/support/s/article/KB-000038989",
   "tier": "enterprise",
   "supported_products": [
     "Sophos Endpoint Protection",
@@ -10,7 +10,7 @@
     "Sophos Central Endpoint",
     "Sophos Server Protection"
   ],
-  "download_url": "https://downloads.sophos.com/tools/SophosZap.exe",
+  "download_url": "https://download.sophos.com/tools/SophosZap.exe",
   "file_type": "exe",
   "expected_sha256": null,
   "execution": {

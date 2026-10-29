@@ -9,7 +9,7 @@
     "AVG Internet Security",
     "AVG Ultimate"
   ],
-  "download_url": "https://files.avast.com/iavs9x/avgclear.exe",
+  "download_url": "https://honzik.avcdn.net/setup/avg-av/release/avg_av_clear.exe",
   "file_type": "exe",
   "expected_sha256": null,
   "execution": {
@@ -19,5 +19,5 @@
     "force_flags": null,
     "cli_only": false
   },
-  "notes": "Official AVG removal utility. Recommended to execute in Windows Safe Mode; supports /silent flag."
+  "notes": "Official AVG removal utility served from Gen Digital CDN. Recommended to execute in Windows Safe Mode; supports /silent flag."
 }

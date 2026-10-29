@@ -12,7 +12,7 @@
     "ESET Endpoint Security",
     "ESET Server Security"
   ],
-  "download_url": "https://download.eset.com/com/eset/tools/installers/eset_apps_remover/latest/ESETUninstaller.exe",
+  "download_url": "https://download.eset.com/com/eset/tools/installers/eset_apps_remover/latest/esetuninstaller.exe",
   "file_type": "exe",
   "expected_sha256": null,
   "execution": {
