@@ -1,0 +1,22 @@
+{
+  "id": "crowdstrike-falcon-uninstall",
+  "vendor": "CrowdStrike",
+  "tool_name": "Falcon Windows Sensor Uninstall Tool (CsUninstallTool)",
+  "official_docs_url": "https://falcon.crowdstrike.com/support/tool-downloads",
+  "distribution": "portal_gated",
+  "tier": "enterprise",
+  "supported_products": [
+    "CrowdStrike Falcon Sensor for Windows"
+  ],
+  "download_url": null,
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": false,
+    "silent_flags": "/quiet",
+    "force_flags": "MAINTENANCE_TOKEN=<token> /quiet",
+    "cli_only": false
+  },
+  "notes": "Download CsUninstallTool.exe from Falcon Console > Support and resources > Tool downloads. Supply MAINTENANCE_TOKEN=<token> when sensor uninstall protection is enabled."
+}

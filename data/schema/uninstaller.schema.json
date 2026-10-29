@@ -29,6 +29,12 @@
       "format": "uri",
       "pattern": "^https?://\\S+$"
     },
+    "distribution": {
+      "type": "string",
+      "enum": ["public", "portal_gated"],
+      "default": "public",
+      "description": "Whether the removal binary is publicly downloadable or gated behind an authenticated vendor portal."
+    },
     "tier": {
       "type": "string",
       "enum": ["consumer", "enterprise", "both"]
@@ -41,9 +47,10 @@
       }
     },
     "download_url": {
-      "type": "string",
+      "type": ["string", "null"],
       "format": "uri",
-      "pattern": "^https?://\\S+$"
+      "pattern": "^https?://\\S+$",
+      "description": "Direct public download URL, or null when distribution is portal_gated."
     },
     "file_type": {
       "type": "string",
@@ -52,7 +59,7 @@
     "expected_sha256": {
       "type": ["string", "null"],
       "pattern": "^[a-fA-F0-9]{64}$",
-      "description": "Null if the vendor dynamically compiles the binary on request"
+      "description": "Null if the vendor dynamically compiles or updates the binary on an evergreen endpoint"
     },
     "execution": {
       "type": "object",
@@ -78,6 +85,29 @@
     },
     "notes": {
       "type": "string"
+    }
+  },
+  "if": {
+    "properties": {
+      "distribution": {
+        "const": "portal_gated"
+      }
+    },
+    "required": ["distribution"]
+  },
+  "then": {
+    "required": ["official_docs_url"],
+    "properties": {
+      "download_url": {
+        "type": "null"
+      }
+    }
+  },
+  "else": {
+    "properties": {
+      "download_url": {
+        "type": "string"
+      }
     }
   }
 }

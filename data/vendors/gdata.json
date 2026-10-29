@@ -1,0 +1,26 @@
+{
+  "id": "gdata-product-cleaner",
+  "vendor": "G DATA",
+  "tool_name": "G DATA Product Cleaner (AVCleaner)",
+  "official_docs_url": "https://www.gdata.de/help-en/tools/ProductCleaner/",
+  "distribution": "public",
+  "tier": "both",
+  "supported_products": [
+    "G DATA Antivirus",
+    "G DATA Internet Security",
+    "G DATA Total Security",
+    "G DATA Endpoint Protection Business",
+    "G DATA Security Client"
+  ],
+  "download_url": "https://gdata-a.akamaihd.net/Q/WEB/TOOL/GDATA_Product_Cleaner.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": "--cleanall --nomessage --noreboot",
+    "force_flags": "--cleanall -q",
+    "cli_only": false
+  },
+  "notes": "Successor to G DATA AVCleaner (also linked via https://secure.gd/dl-product-cleaner) supporting GUI and CLI automation (--client:u, --cleanall, -q, --noreboot)."
+}

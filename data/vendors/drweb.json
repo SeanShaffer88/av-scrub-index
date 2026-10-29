@@ -1,0 +1,24 @@
+{
+  "id": "drweb-remover",
+  "vendor": "Dr.Web",
+  "tool_name": "Dr.Web Remover (drw_remover)",
+  "official_docs_url": "https://support.drweb.com/",
+  "distribution": "portal_gated",
+  "tier": "both",
+  "supported_products": [
+    "Dr.Web Security Space",
+    "Dr.Web Anti-virus",
+    "Dr.Web Enterprise Security Suite"
+  ],
+  "download_url": null,
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Emergency uninstallation utility issued via Dr.Web Support / customer portal; requires interactive CAPTCHA entry to disengage dwprot.sys self-protection."
+}

@@ -1,0 +1,22 @@
+{
+  "id": "sentinelone-cleaner",
+  "vendor": "SentinelOne",
+  "tool_name": "SentinelCleaner",
+  "official_docs_url": "https://community.sentinelone.com/",
+  "distribution": "portal_gated",
+  "tier": "enterprise",
+  "supported_products": [
+    "SentinelOne Singularity Agent for Windows"
+  ],
+  "download_url": null,
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": true,
+    "requires_reboot": true,
+    "silent_flags": "uninstall.exe /k \"<passphrase>\" /q",
+    "force_flags": null,
+    "cli_only": true
+  },
+  "notes": "Obtained via SentinelOne Customer Portal / Management Console; SentinelCleaner must be executed from Windows Safe Mode when standard passphrase uninstall fails."
+}

@@ -1,0 +1,25 @@
+{
+  "id": "zonealarm-clean",
+  "vendor": "ZoneAlarm (Check Point)",
+  "tool_name": "ZoneAlarm Clean Utility (CLEAN.exe)",
+  "official_docs_url": "https://support.zonealarm.com/hc/en-us/articles/115001848332-How-to-Upgrade-your-ZoneAlarm-software",
+  "distribution": "public",
+  "tier": "consumer",
+  "supported_products": [
+    "ZoneAlarm Free Firewall",
+    "ZoneAlarm Free Antivirus + Firewall",
+    "ZoneAlarm Pro Antivirus + Firewall",
+    "ZoneAlarm Extreme Security"
+  ],
+  "download_url": "https://download.zonealarm.com/bin/free/support/download/CLEAN.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": true,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Disable 'Load ZoneAlarm at startup' or boot into Windows Safe Mode before running CLEAN.exe to remove Check Point TrueVector (vsmon) drivers."
+}

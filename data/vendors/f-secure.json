@@ -1,0 +1,25 @@
+{
+  "id": "f-secure-uninstaller",
+  "vendor": "F-Secure / WithSecure",
+  "tool_name": "F-Secure Uninstallation Tool (FsUninstallationTool)",
+  "official_docs_url": "https://www.f-secure.com/en/support/tools",
+  "distribution": "public",
+  "tier": "both",
+  "supported_products": [
+    "F-Secure Total",
+    "F-Secure SAFE",
+    "F-Secure Internet Security",
+    "WithSecure Elements Endpoint Protection"
+  ],
+  "download_url": "https://download.sp.f-secure.com/uninstallationtool/FsUninstallationTool.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Official last-resort removal utility for F-Secure consumer suites and legacy WithSecure endpoint agents."
+}

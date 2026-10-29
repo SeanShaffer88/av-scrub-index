@@ -1,0 +1,26 @@
+{
+  "id": "watchguard-epdr-uninstaller",
+  "vendor": "WatchGuard / Cytomic",
+  "tool_name": "Protection Generic Uninstaller (PSInfo)",
+  "official_docs_url": "https://www.watchguard.com/help/docs/help-center/en-US/Content/en-US/Endpoint-Security/troubleshooting/psinfotool/psinfo.html",
+  "distribution": "portal_gated",
+  "tier": "enterprise",
+  "supported_products": [
+    "WatchGuard Advanced EPDR",
+    "WatchGuard EPDR",
+    "WatchGuard EDR",
+    "WatchGuard EPP",
+    "Panda Adaptive Defense 360"
+  ],
+  "download_url": null,
+  "file_type": "zip",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": "-local -nogui",
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Bundled inside WatchGuard PSInfo (archive password 'panda' -> Tools tab -> Protection Generic Uninstaller); prompts for tamper password if configured."
+}

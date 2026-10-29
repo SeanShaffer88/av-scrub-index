@@ -1,0 +1,26 @@
+{
+  "id": "trellix-epr",
+  "vendor": "Trellix (McAfee Enterprise)",
+  "tool_name": "Endpoint Product Removal Tool (EPR)",
+  "official_docs_url": "https://thrive.trellix.com/",
+  "distribution": "portal_gated",
+  "tier": "enterprise",
+  "supported_products": [
+    "Trellix Endpoint Security (ENS)",
+    "Trellix Agent (McAfee Agent)",
+    "VirusScan Enterprise (VSE)",
+    "Trellix Host Intrusion Prevention (HIPS)",
+    "Trellix Data Loss Prevention (DLP)"
+  ],
+  "download_url": null,
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": "--accepteula --ALL",
+    "force_flags": "--accepteula --ALL --BRUTEFORCE=MFEDEEPREM_FOLDER_ATP_STOP",
+    "cli_only": false
+  },
+  "notes": "Requires active Trellix Grant Number via Trellix Support Portal (KB90895). EPR binaries have a built-in ~90-day security expiration window and must be refreshed periodically."
+}

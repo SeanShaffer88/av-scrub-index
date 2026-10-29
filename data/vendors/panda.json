@@ -1,0 +1,25 @@
+{
+  "id": "panda-uninstaller",
+  "vendor": "Panda Security",
+  "tool_name": "Panda Generic Uninstaller",
+  "official_docs_url": "https://www.pandasecurity.com/en/support/",
+  "distribution": "public",
+  "tier": "both",
+  "supported_products": [
+    "Panda Dome",
+    "Panda Free Antivirus",
+    "Panda Internet Security",
+    "Panda Global Protection"
+  ],
+  "download_url": "https://www.pandasecurity.com/resources/tools/uninstaller.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Purges residual Panda Dome and legacy Panda Antivirus services, filter drivers, and registry keys prior to system reboot."
+}
