@@ -1,0 +1,24 @@
+{
+  "id": "norton-nrnr",
+  "vendor": "Norton",
+  "tool_name": "Norton Remove and Reinstall (NRnR)",
+  "official_docs_url": "https://support.norton.com/sp/en/us/home/current/solutions/v60392881",
+  "tier": "consumer",
+  "supported_products": [
+    "Norton 360",
+    "Norton AntiVirus Plus",
+    "Norton Security",
+    "Norton Internet Security"
+  ],
+  "download_url": "https://buy-download.norton.com/downloads/premium_services/NRnR.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": "/RemoveOnly",
+    "force_flags": "/RemoveOnly",
+    "cli_only": false
+  },
+  "notes": "Pass /RemoveOnly under Advanced Options mode to skip product reinstallation; user confirmation is still required prior to reboot."
+}

@@ -1,0 +1,26 @@
+{
+  "id": "kaspersky-kavremover",
+  "vendor": "Kaspersky",
+  "tool_name": "Kaspersky Removal Tool (kavremover)",
+  "official_docs_url": "https://support.kaspersky.com/common/uninstall/1464",
+  "tier": "both",
+  "supported_products": [
+    "Kaspersky Standard",
+    "Kaspersky Plus",
+    "Kaspersky Premium",
+    "Kaspersky Total Security",
+    "Kaspersky Internet Security",
+    "Kaspersky Endpoint Security for Windows"
+  ],
+  "download_url": "https://media.kaspersky.com/utilities/ConsumerUtilities/kavremvr.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": "-nodetect",
+    "cli_only": false
+  },
+  "notes": "Displays an interactive CAPTCHA challenge to prevent unauthorized removal; pass -nodetect to manually select unlisted product profiles."
+}

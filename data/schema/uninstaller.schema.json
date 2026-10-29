@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AVRemovalToolEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "vendor",
+    "tool_name",
+    "download_url",
+    "tier",
+    "execution"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "vendor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tool_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "official_docs_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://\\S+$"
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["consumer", "enterprise", "both"]
+    },
+    "supported_products": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "download_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://\\S+$"
+    },
+    "file_type": {
+      "type": "string",
+      "enum": ["exe", "msi", "zip", "iso"]
+    },
+    "expected_sha256": {
+      "type": ["string", "null"],
+      "pattern": "^[a-fA-F0-9]{64}$",
+      "description": "Null if the vendor dynamically compiles the binary on request"
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requires_safe_mode", "requires_reboot"],
+      "properties": {
+        "requires_safe_mode": {
+          "type": "boolean"
+        },
+        "requires_reboot": {
+          "type": "boolean"
+        },
+        "silent_flags": {
+          "type": ["string", "null"]
+        },
+        "force_flags": {
+          "type": ["string", "null"]
+        },
+        "cli_only": {
+          "type": "boolean"
+        }
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

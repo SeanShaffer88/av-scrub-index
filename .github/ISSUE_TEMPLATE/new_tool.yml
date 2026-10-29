@@ -1,0 +1,62 @@
+name: Submit a New Removal Tool
+description: Add an official uninstallation utility to the dataset.
+title: "[New Tool]: "
+labels: ["tool-submission"]
+body:
+  - type: input
+    id: vendor
+    attributes:
+      label: Vendor Name
+      placeholder: "e.g., ESET"
+    validations:
+      required: true
+  - type: input
+    id: tool_name
+    attributes:
+      label: Official Tool Name
+      placeholder: "e.g., ESET Uninstaller"
+    validations:
+      required: true
+  - type: input
+    id: download_url
+    attributes:
+      label: Direct Download URL
+      placeholder: "https://..."
+    validations:
+      required: true
+  - type: input
+    id: official_docs_url
+    attributes:
+      label: Official Vendor Documentation URL
+      placeholder: "https://support.example.com/..."
+    validations:
+      required: false
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Market Tier
+      options:
+        - consumer
+        - enterprise
+        - both
+    validations:
+      required: true
+  - type: checkboxes
+    id: execution_flags
+    attributes:
+      label: Operational Requirements
+      options:
+        - label: Requires Windows Safe Mode to operate
+        - label: Requires system reboot upon completion
+        - label: Command-line only (CLI)
+  - type: input
+    id: silent_args
+    attributes:
+      label: Silent / Unattended CLI Flags
+      placeholder: "e.g., /silent, --nodetect"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Operational Notes
+      description: Any caveats such as CAPTCHA prompts, Tamper Protection prerequisites, or supported product families.
+      placeholder: "e.g., Disable Tamper Protection before running..."

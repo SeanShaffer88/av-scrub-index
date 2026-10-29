@@ -1,0 +1,23 @@
+{
+  "id": "avast-clear",
+  "vendor": "Avast",
+  "tool_name": "Avast Clear (avastclear)",
+  "official_docs_url": "https://www.avast.com/uninstall-utility",
+  "tier": "consumer",
+  "supported_products": [
+    "Avast Free Antivirus",
+    "Avast Premium Security",
+    "Avast One"
+  ],
+  "download_url": "https://files.avast.com/iavs9x/avastclear.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": true,
+    "requires_reboot": true,
+    "silent_flags": "/silent",
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Prompts to reboot into Windows Safe Mode when launched interactively; run from Safe Mode with /silent for unattended cleanup."
+}

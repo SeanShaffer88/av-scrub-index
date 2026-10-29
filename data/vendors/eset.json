@@ -1,0 +1,26 @@
+{
+  "id": "eset-uninstaller",
+  "vendor": "ESET",
+  "tool_name": "ESET Uninstaller",
+  "official_docs_url": "https://support.eset.com/en/kb2289-uninstall-eset-manually-using-the-eset-uninstaller-tool",
+  "tier": "both",
+  "supported_products": [
+    "ESET NOD32 Antivirus",
+    "ESET Internet Security",
+    "ESET Smart Security Premium",
+    "ESET Endpoint Antivirus",
+    "ESET Endpoint Security",
+    "ESET Server Security"
+  ],
+  "download_url": "https://download.eset.com/com/eset/tools/installers/eset_apps_remover/latest/ESETUninstaller.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": true,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": "/force",
+    "cli_only": true
+  },
+  "notes": "Console-based utility that must be executed from Windows Safe Mode. Supports /force and /reinst switches."
+}

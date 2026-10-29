@@ -1,0 +1,24 @@
+{
+  "id": "sophos-zap",
+  "vendor": "Sophos",
+  "tool_name": "SophosZap",
+  "official_docs_url": "https://support.sophos.com/support/s/article/KBA-000005647",
+  "tier": "enterprise",
+  "supported_products": [
+    "Sophos Endpoint Protection",
+    "Sophos Intercept X",
+    "Sophos Central Endpoint",
+    "Sophos Server Protection"
+  ],
+  "download_url": "https://downloads.sophos.com/tools/SophosZap.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": "--confirm",
+    "force_flags": "--confirm",
+    "cli_only": true
+  },
+  "notes": "Last-resort CLI cleanup tool. Disable Tamper Protection first, run SophosZap --confirm from an elevated prompt, reboot, and re-run if prompted."
+}
