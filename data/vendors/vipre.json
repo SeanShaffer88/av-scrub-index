@@ -1,0 +1,25 @@
+{
+  "id": "vipre-removal-tool",
+  "vendor": "VIPRE",
+  "tool_name": "VIPRE Removal Tool",
+  "official_docs_url": "https://documentation.remote.management/remote-management/troubleshooting/Content/kb/Where-do-I-obtain-the-Vipre-Removal-Tool.htm",
+  "distribution": "public",
+  "tier": "both",
+  "supported_products": [
+    "VIPRE Advanced Security",
+    "VIPRE Antivirus Plus",
+    "VIPRE Endpoint Security",
+    "N-able Managed Antivirus (VIPRE)"
+  ],
+  "download_url": "https://go.vipre.com/?linkid=1914",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": "-spquiet",
+    "force_flags": "-spquiet --nolog",
+    "cli_only": false
+  },
+  "notes": "Removes broken VIPRE Consumer, Endpoint Security, and N-able Managed AV (SBAMSvc) installations; pass -spquiet for unattended RMM execution."
+}

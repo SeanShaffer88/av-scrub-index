@@ -1,0 +1,25 @@
+{
+  "id": "avira-registry-cleaner",
+  "vendor": "Avira",
+  "tool_name": "Avira RegistryCleaner",
+  "official_docs_url": "https://support.avira.com/hc/en-us/articles/360002858514-How-do-I-perform-a-manual-reinstallation-of-my-Avira-product",
+  "distribution": "public",
+  "tier": "consumer",
+  "supported_products": [
+    "Avira Free Security",
+    "Avira Antivirus Pro",
+    "Avira Internet Security",
+    "Avira Prime"
+  ],
+  "download_url": "https://install.avira-update.com/package/regcleaner/win32/en/avira_registry_cleaner_en.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": true,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Execute in Windows Safe Mode after removing C:\\Program Files\\Avira and C:\\ProgramData\\Avira to purge residual Avira registry keys."
+}

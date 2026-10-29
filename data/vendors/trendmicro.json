@@ -1,0 +1,24 @@
+{
+  "id": "trendmicro-remnant-remover",
+  "vendor": "Trend Micro",
+  "tool_name": "Trend Micro Remnant File Remover Tool",
+  "official_docs_url": "https://helpcenter.trendlife.com/en-us/article/tmka-11879",
+  "distribution": "public",
+  "tier": "consumer",
+  "supported_products": [
+    "Trend Micro Maximum Security",
+    "Trend Micro Internet Security",
+    "Trend Micro Antivirus+ Security"
+  ],
+  "download_url": "https://powerbox-na-file.trend.org/SFDC/DownloadFile_iv.php?jsonInfo=%7B%22Query%22%3A%22nXHR467Mr%2BMAdpqcxpZE533QzOnQ1s3nYrVSB3z8qxVtNWTomxmDnfj87mwb6LI3GTBySeJHoJpmqhe%2BF2XlxRD8KnKaLE%2Fn1NDLJZ%2BPoeLSKyr7GggMBKWNIyxs23zpkNe7Wk3c74lxO%2F053Rz54i%2F%2BMzJV%2FlE9OHouMhBddkna54xIouV8xDlqvAqKyHXYKF9UMytuA%2BGJPVU0VclqbBMwDU1QSZHfuL0tR0%2BgdvLezTUzDzZOKfjaYScwSMi3vVPmhAj8FpruTOz8kkIMjBw1M7PlosdPLYVqg6P37UoexsqAz0ZZDwg5h84iKpgLrqE8TXJMb%2BvptL%2Fs18x%2BeQ%3D%3D%22%2C%22iv%22%3A%22ef213a00e1ffa98eccd3badd864f2f32%22%7D",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Official consumer cleanup utility when Trend Micro Diagnostic Toolkit (supporttool.exe) is missing or fails to remove leftover drivers."
+}

@@ -1,0 +1,25 @@
+{
+  "id": "k7-removal-tool",
+  "vendor": "K7 Computing",
+  "tool_name": "K7 Security Product Removal Tool (K7RT)",
+  "official_docs_url": "https://support.k7computing.com/",
+  "distribution": "portal_gated",
+  "tier": "both",
+  "supported_products": [
+    "K7 Total Security",
+    "K7 AntiVirus Premium",
+    "K7 Ultimate Security",
+    "K7 Endpoint Security"
+  ],
+  "download_url": null,
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Standalone cleanup utility obtained via K7 Support when standard uninstallation fails or the settings protection password is lost."
+}

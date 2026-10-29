@@ -1,0 +1,25 @@
+{
+  "id": "trendmicro-cut",
+  "vendor": "Trend Micro",
+  "tool_name": "Common Uninstall Tool (CUT / SCUT)",
+  "official_docs_url": "https://success.trendmicro.com/en-US/solution/KA-0013399",
+  "distribution": "portal_gated",
+  "tier": "enterprise",
+  "supported_products": [
+    "Trend Micro Apex One",
+    "Trend Micro Deep Security Agent (DSA)",
+    "Trend Micro Worry-Free Business Security (WFBS)",
+    "Trend Vision One Endpoint"
+  ],
+  "download_url": null,
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": "-c",
+    "force_flags": "ForceUninstall -c",
+    "cli_only": true
+  },
+  "notes": "Downloaded via Trend Micro Business Success Portal (Diagnostic Tool > CUT); binaries carry a rolling ~30-day validity window."
+}

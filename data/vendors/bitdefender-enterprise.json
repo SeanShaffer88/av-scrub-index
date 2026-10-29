@@ -1,0 +1,24 @@
+{
+  "id": "bitdefender-best-uninstaller",
+  "vendor": "Bitdefender",
+  "tool_name": "GravityZone BEST Uninstall Tool (BEST_uninstallTool)",
+  "official_docs_url": "https://www.bitdefender.com/business/support/en/77209-80124-using-the-uninstall-tool-to-remove-bitdefender-endpoint-security-tools.html",
+  "distribution": "public",
+  "tier": "enterprise",
+  "supported_products": [
+    "Bitdefender Endpoint Security Tools (BEST)",
+    "Bitdefender GravityZone Business Security",
+    "Bitdefender GravityZone Enterprise"
+  ],
+  "download_url": "https://download.bitdefender.com/SMB/Hydra/release/bst_win/uninstallTool/BEST_uninstallTool.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": "/bdparams /noWait",
+    "force_flags": "/bdparams /bruteForce /noWait",
+    "cli_only": false
+  },
+  "notes": "Enterprise GravityZone scrubber; pass /password=\"<pwd>\" after /bdparams if uninstall password protection is enabled, or run /bruteForce from Safe Mode."
+}

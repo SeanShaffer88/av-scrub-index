@@ -39,8 +39,8 @@ class TestPayloadsAndSchema(unittest.TestCase):
         self.vendor_files = [
             Path(p) for p in sorted(glob.glob(str(VENDORS_DIR / "*.json")))
         ]
-        self.assertGreater(len(self.vendor_files), 0, "Expected vendor JSON files")
-        with self.vendor_files[0].open("r", encoding="utf-8") as handle:
+        self.assertGreaterEqual(len(self.vendor_files), 28, "Expected >= 28 vendor JSON files")
+        with (VENDORS_DIR / "avast.json").open("r", encoding="utf-8") as handle:
             self.sample_entry = json.load(handle)
 
     def test_all_vendor_payloads_pass_schema(self) -> None:
@@ -61,6 +61,26 @@ class TestPayloadsAndSchema(unittest.TestCase):
         bad = copy.deepcopy(self.sample_entry)
         bad["download_url"] = "ftp://invalid.example.com/tool.exe"
         self._assert_invalid(bad)
+
+    def test_public_entry_rejects_null_download_url(self) -> None:
+        bad = copy.deepcopy(self.sample_entry)
+        bad["download_url"] = None
+        self._assert_invalid(bad)
+
+    def test_portal_gated_contract(self) -> None:
+        portal_good = copy.deepcopy(self.sample_entry)
+        portal_good["distribution"] = "portal_gated"
+        portal_good["download_url"] = None
+        portal_good["official_docs_url"] = "https://portal.example.com/tools"
+        self._assert_valid(portal_good)
+
+        missing_docs = copy.deepcopy(portal_good)
+        del missing_docs["official_docs_url"]
+        self._assert_invalid(missing_docs)
+
+        non_null_dl = copy.deepcopy(portal_good)
+        non_null_dl["download_url"] = "https://example.com/tool.exe"
+        self._assert_invalid(non_null_dl)
 
     def test_rejects_invalid_sha256_and_accepts_valid(self) -> None:
         bad = copy.deepcopy(self.sample_entry)
@@ -126,9 +146,15 @@ class TestDistAndReadmeSync(unittest.TestCase):
             rendered = readme_mod.render_readme(readme_path=temp_readme)
             current = README_PATH.read_text(encoding="utf-8")
             self.assertEqual(current, rendered, "README.md is out of sync with vendor data")
-            self.assertNotIn("{table_rows}", current)
+            self.assertNotIn("{public_table_rows}", current)
+            self.assertNotIn("{portal_table_rows}", current)
             for item in compile_mod.load_vendor_entries():
-                self.assertIn(item["download_url"], current)
+                expected_url = (
+                    item["official_docs_url"]
+                    if item.get("distribution") == "portal_gated"
+                    else item["download_url"]
+                )
+                self.assertIn(expected_url, current)
                 self.assertIn(item["tool_name"], current)
 
 
@@ -174,6 +200,23 @@ class TestLinkChecker(unittest.TestCase):
             )
             self.assertFalse(res["ok"])
             self.assertEqual(res["status_code"], 404)
+
+    def test_portal_gated_probes_official_docs_url(self) -> None:
+        head_resp = MagicMock(status_code=403)
+        with patch.object(links_mod.requests, "head", return_value=head_resp) as head_mock:
+            res = links_mod.probe_url(
+                {
+                    "id": "p",
+                    "vendor": "CrowdStrike",
+                    "tool_name": "CsUninstallTool",
+                    "distribution": "portal_gated",
+                    "download_url": None,
+                    "official_docs_url": "https://falcon.crowdstrike.com/support/tool-downloads",
+                }
+            )
+            head_mock.assert_called_once()
+            self.assertTrue(res["ok"])
+            self.assertEqual(res["url"], "https://falcon.crowdstrike.com/support/tool-downloads")
 
     def test_sha256_verification_and_drift_detection(self) -> None:
         body = b"binary-payload-bytes"

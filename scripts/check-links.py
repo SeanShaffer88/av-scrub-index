@@ -29,12 +29,15 @@ HEADERS = {
 
 
 def probe_url(entry: dict[str, Any], timeout: int = 12) -> dict[str, Any]:
-    url = entry.get("download_url")
-    expected_sha256 = entry.get("expected_sha256")
+    distribution = entry.get("distribution", "public")
+    portal_gated = distribution == "portal_gated"
+    url = entry.get("official_docs_url") if portal_gated else entry.get("download_url")
+    expected_sha256 = None if portal_gated else entry.get("expected_sha256")
     result: dict[str, Any] = {
         "id": entry.get("id"),
         "vendor": entry.get("vendor"),
         "tool_name": entry.get("tool_name"),
+        "distribution": distribution,
         "file": entry.get("_file"),
         "url": url,
         "ok": False,
@@ -46,8 +49,18 @@ def probe_url(entry: dict[str, Any], timeout: int = 12) -> dict[str, Any]:
     }
 
     if not url:
-        result["error"] = "Missing download_url"
+        result["error"] = (
+            "Missing official_docs_url" if portal_gated else "Missing download_url"
+        )
         return result
+
+    def _status_acceptable(code: int) -> bool:
+        if 200 <= code < 400:
+            return True
+        # Authenticated enterprise portals or WAF-protected KB pages may return 401/403
+        if portal_gated and code in (401, 403):
+            return True
+        return False
 
     try:
         if expected_sha256:
@@ -87,7 +100,7 @@ def probe_url(entry: dict[str, Any], timeout: int = 12) -> dict[str, Any]:
                     url, headers=HEADERS, allow_redirects=True, timeout=timeout
                 )
                 result["status_code"] = resp.status_code
-                head_ok = 200 <= resp.status_code < 400
+                head_ok = _status_acceptable(resp.status_code)
                 resp.close()
             except requests.RequestException:
                 head_ok = False
@@ -103,7 +116,7 @@ def probe_url(entry: dict[str, Any], timeout: int = 12) -> dict[str, Any]:
                     timeout=timeout,
                 ) as get_resp:
                     result["status_code"] = get_resp.status_code
-                    result["ok"] = 200 <= get_resp.status_code < 400
+                    result["ok"] = _status_acceptable(get_resp.status_code)
     except Exception as exc:  # noqa: BLE001
         result["error"] = str(exc)
 
@@ -245,7 +258,7 @@ def main(argv: list[str] | None = None) -> int:
             entry["_file"] = os.path.relpath(file_path, REPO_ROOT)
             entries.append(entry)
 
-    print(f"[*] Probing {len(entries)} vendor download URL(s)...")
+    print(f"[*] Probing {len(entries)} vendor endpoint(s)...")
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         results = list(
             executor.map(lambda item: probe_url(item, timeout=args.timeout), entries)
@@ -266,7 +279,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"[ERROR] {msg}")
         if in_gha:
             file_part = f"file={fail['file']}," if fail.get("file") else ""
-            print(f"::error {file_part}title=Broken Download URL::{msg}")
+            print(f"::error {file_part}title=Broken Endpoint URL::{msg}")
 
     if failures:
         return 1

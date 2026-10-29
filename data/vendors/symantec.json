@@ -1,0 +1,23 @@
+{
+  "id": "symantec-cleanwipe",
+  "vendor": "Broadcom (Symantec)",
+  "tool_name": "Symantec CleanWipe",
+  "official_docs_url": "https://knowledge.broadcom.com/external/article/178870/download-the-cleanwipe-removal-tool-to-u.html",
+  "distribution": "portal_gated",
+  "tier": "enterprise",
+  "supported_products": [
+    "Symantec Endpoint Protection (SEP)",
+    "Symantec Endpoint Security (SES)"
+  ],
+  "download_url": null,
+  "file_type": "zip",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": true,
+    "requires_reboot": true,
+    "silent_flags": "-silent",
+    "force_flags": "-silent",
+    "cli_only": false
+  },
+  "notes": "Available to entitled customers via Broadcom Support Portal (Article 178870) or inside full SEP installation media under Tools\\CleanWipe."
+}

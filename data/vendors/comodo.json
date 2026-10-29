@@ -1,0 +1,25 @@
+{
+  "id": "comodo-cis-cleanup",
+  "vendor": "Comodo / Xcitium",
+  "tool_name": "Comodo CIS Cleanup Tool (ciscleanuptool_x64)",
+  "official_docs_url": "https://forums.comodo.com/t/forced-uninstaller-tools/289908",
+  "distribution": "public",
+  "tier": "both",
+  "supported_products": [
+    "Comodo Internet Security (CIS)",
+    "Comodo Antivirus",
+    "Comodo Free Firewall",
+    "Comodo Client Security"
+  ],
+  "download_url": "https://download.comodo.com/cis/download/installs/ciscleanuptool/ciscleanuptool_x64.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Official 64-bit forced uninstaller removing cmdagent, inspect.sys firewall drivers, and containment artifacts (32-bit build at ciscleanuptool_x86.exe); typically prompts for two reboots."
+}

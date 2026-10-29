@@ -1,0 +1,24 @@
+{
+  "id": "webroot-wrsa-uninstall",
+  "vendor": "Webroot",
+  "tool_name": "Webroot SecureAnywhere Uninstaller (wsainstall)",
+  "official_docs_url": "https://answers.webroot.com/Webroot/ukp.aspx?pid=12&app=vw&vw=1&solutionid=1025",
+  "distribution": "public",
+  "tier": "both",
+  "supported_products": [
+    "Webroot SecureAnywhere AntiVirus",
+    "Webroot Internet Security Complete",
+    "Webroot Business Endpoint Protection"
+  ],
+  "download_url": "https://anywhere.webrootcloudav.com/zerol/wsainstall.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": "/uninstall /silent",
+    "force_flags": "/uninstall",
+    "cli_only": false
+  },
+  "notes": "Webroot's official evergreen installer doubles as its forcible uninstaller when invoked with /uninstall; interactive runs display a CAPTCHA challenge."
+}
