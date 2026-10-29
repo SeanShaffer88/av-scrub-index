@@ -1,0 +1,24 @@
+{
+  "id": "bitdefender-uninstall-tool",
+  "vendor": "Bitdefender",
+  "tool_name": "Bitdefender Consumer Uninstall Tool",
+  "official_docs_url": "https://www.bitdefender.com/uninstall/",
+  "tier": "consumer",
+  "supported_products": [
+    "Bitdefender Total Security",
+    "Bitdefender Internet Security",
+    "Bitdefender Antivirus Plus",
+    "Bitdefender Antivirus Free"
+  ],
+  "download_url": "https://www.bitdefender.com/links/uninstall_consumer_paid.html",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Evergreen redirect to the latest consumer Bitdefender Uninstall Tool binary. For GravityZone enterprise endpoints, use BEST_uninstallTool.exe."
+}

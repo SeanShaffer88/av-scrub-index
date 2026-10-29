@@ -1,0 +1,53 @@
+name: Link Health & Drift Monitor
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: pip install requests
+
+      - name: Probe Endpoints
+        id: link_check
+        run: python scripts/check-links.py --all --output report.json
+
+      - name: Open Issue On Broken Endpoint
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            if (!fs.existsSync('report.json')) {
+              core.setFailed('report.json was not generated.');
+              return;
+            }
+            const report = JSON.parse(fs.readFileSync('report.json', 'utf8'));
+            const failures = report.filter(r => !r.ok);
+            let body = "The daily endpoint probe encountered failures:\n\n| Vendor | Tool | URL | Status |\n|---|---|---|---|\n";
+            failures.forEach(f => {
+              const status = f.error
+                ? (f.status_code ? `${f.status_code} (${f.error})` : f.error)
+                : f.status_code;
+              body += `| ${f.vendor} | ${f.tool_name} | ${f.url} | ${status} |\n`;
+            });
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[Automated Alert] Dead URLs Detected (${failures.length})`,
+              body: body,
+              labels: ['broken-link', 'automated']
+            });

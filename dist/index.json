@@ -1,0 +1,220 @@
+[
+  {
+    "id": "avast-clear",
+    "vendor": "Avast",
+    "tool_name": "Avast Clear (avastclear)",
+    "official_docs_url": "https://www.avast.com/uninstall-utility",
+    "tier": "consumer",
+    "supported_products": [
+      "Avast Free Antivirus",
+      "Avast Premium Security",
+      "Avast One"
+    ],
+    "download_url": "https://files.avast.com/iavs9x/avastclear.exe",
+    "file_type": "exe",
+    "expected_sha256": null,
+    "execution": {
+      "requires_safe_mode": true,
+      "requires_reboot": true,
+      "silent_flags": "/silent",
+      "force_flags": null,
+      "cli_only": false
+    },
+    "notes": "Prompts to reboot into Windows Safe Mode when launched interactively; run from Safe Mode with /silent for unattended cleanup."
+  },
+  {
+    "id": "avg-clear",
+    "vendor": "AVG",
+    "tool_name": "AVG Clear",
+    "official_docs_url": "https://www.avg.com/en-us/avg-remover",
+    "tier": "consumer",
+    "supported_products": [
+      "AVG AntiVirus FREE",
+      "AVG Internet Security",
+      "AVG Ultimate"
+    ],
+    "download_url": "https://honzik.avcdn.net/setup/avg-av/release/avg_av_clear.exe",
+    "file_type": "exe",
+    "expected_sha256": null,
+    "execution": {
+      "requires_safe_mode": true,
+      "requires_reboot": true,
+      "silent_flags": "/silent",
+      "force_flags": null,
+      "cli_only": false
+    },
+    "notes": "Official AVG removal utility served from Gen Digital CDN. Recommended to execute in Windows Safe Mode; supports /silent flag."
+  },
+  {
+    "id": "bitdefender-uninstall-tool",
+    "vendor": "Bitdefender",
+    "tool_name": "Bitdefender Consumer Uninstall Tool",
+    "official_docs_url": "https://www.bitdefender.com/uninstall/",
+    "tier": "consumer",
+    "supported_products": [
+      "Bitdefender Total Security",
+      "Bitdefender Internet Security",
+      "Bitdefender Antivirus Plus",
+      "Bitdefender Antivirus Free"
+    ],
+    "download_url": "https://www.bitdefender.com/links/uninstall_consumer_paid.html",
+    "file_type": "exe",
+    "expected_sha256": null,
+    "execution": {
+      "requires_safe_mode": false,
+      "requires_reboot": true,
+      "silent_flags": null,
+      "force_flags": null,
+      "cli_only": false
+    },
+    "notes": "Evergreen redirect to the latest consumer Bitdefender Uninstall Tool binary. For GravityZone enterprise endpoints, use BEST_uninstallTool.exe."
+  },
+  {
+    "id": "eset-uninstaller",
+    "vendor": "ESET",
+    "tool_name": "ESET Uninstaller",
+    "official_docs_url": "https://support.eset.com/en/kb2289-uninstall-eset-manually-using-the-eset-uninstaller-tool",
+    "tier": "both",
+    "supported_products": [
+      "ESET NOD32 Antivirus",
+      "ESET Internet Security",
+      "ESET Smart Security Premium",
+      "ESET Endpoint Antivirus",
+      "ESET Endpoint Security",
+      "ESET Server Security"
+    ],
+    "download_url": "https://download.eset.com/com/eset/tools/installers/eset_apps_remover/latest/uninstaller.exe",
+    "file_type": "exe",
+    "expected_sha256": null,
+    "execution": {
+      "requires_safe_mode": true,
+      "requires_reboot": true,
+      "silent_flags": "/force",
+      "force_flags": "/force",
+      "cli_only": true
+    },
+    "notes": "Console-based utility that must be executed from Windows Safe Mode. Pass /force for unprompted removal; /reinst also resets network interfaces."
+  },
+  {
+    "id": "kaspersky-kavremover",
+    "vendor": "Kaspersky",
+    "tool_name": "Kaspersky Removal Tool (kavremover)",
+    "official_docs_url": "https://support.kaspersky.com/common/uninstall/1464",
+    "tier": "both",
+    "supported_products": [
+      "Kaspersky Standard",
+      "Kaspersky Plus",
+      "Kaspersky Premium",
+      "Kaspersky Total Security",
+      "Kaspersky Internet Security",
+      "Kaspersky Endpoint Security for Windows"
+    ],
+    "download_url": "https://media.kaspersky.com/utilities/ConsumerUtilities/kavremvr.exe",
+    "file_type": "exe",
+    "expected_sha256": null,
+    "execution": {
+      "requires_safe_mode": false,
+      "requires_reboot": true,
+      "silent_flags": null,
+      "force_flags": "-nodetect",
+      "cli_only": false
+    },
+    "notes": "Displays an interactive CAPTCHA challenge to prevent unauthorized removal; pass -nodetect to manually select unlisted product profiles."
+  },
+  {
+    "id": "malwarebytes-support-tool",
+    "vendor": "Malwarebytes",
+    "tool_name": "Malwarebytes Support Tool (MBST)",
+    "official_docs_url": "https://support.malwarebytes.com/hc/en-us/articles/360039023473-Uninstall-and-reinstall-Malwarebytes-using-the-Malwarebytes-Support-Tool",
+    "tier": "both",
+    "supported_products": [
+      "Malwarebytes Free",
+      "Malwarebytes Premium",
+      "Malwarebytes Plus",
+      "Malwarebytes Endpoint Protection"
+    ],
+    "download_url": "https://downloads.malwarebytes.com/file/mbst",
+    "file_type": "exe",
+    "expected_sha256": null,
+    "execution": {
+      "requires_safe_mode": false,
+      "requires_reboot": true,
+      "silent_flags": "/y /cleanup /noreboot",
+      "force_flags": "/y /cleanup",
+      "cli_only": false
+    },
+    "notes": "Use the Clean option under Advanced in GUI mode; for headless automation fetch mbstcmd.exe via https://downloads.malwarebytes.com/file/mbst-cmd with /y /cleanup /noreboot."
+  },
+  {
+    "id": "mcafee-mcpr",
+    "vendor": "McAfee",
+    "tool_name": "McAfee Consumer Product Removal Tool (MCPR)",
+    "official_docs_url": "https://www.mcafee.com/support/?articleId=TS101331&page=shell&shell=article-view",
+    "tier": "consumer",
+    "supported_products": [
+      "McAfee LiveSafe",
+      "McAfee Total Protection",
+      "McAfee AntiVirus Plus",
+      "McAfee Internet Security"
+    ],
+    "download_url": "https://download.mcafee.com/molbin/iss-loc/SupportTools/MCPR/MCPR.exe",
+    "file_type": "exe",
+    "expected_sha256": null,
+    "execution": {
+      "requires_safe_mode": false,
+      "requires_reboot": true,
+      "silent_flags": null,
+      "force_flags": null,
+      "cli_only": false
+    },
+    "notes": "Interactive GUI requires security CAPTCHA validation; extracted mccleanup.exe inside %TEMP% supports unattended -p/-v/-s flags."
+  },
+  {
+    "id": "norton-remover",
+    "vendor": "Norton",
+    "tool_name": "Norton 360 Remover (NRnR)",
+    "official_docs_url": "https://support.norton.com/sp/en/us/home/current/solutions/v20240301142500636",
+    "tier": "consumer",
+    "supported_products": [
+      "Norton 360",
+      "Norton AntiVirus Plus",
+      "Norton Security",
+      "Norton Internet Security"
+    ],
+    "download_url": "https://honzik.avcdn.net/setup/norton-suite/release/norton_360_remover.exe",
+    "file_type": "exe",
+    "expected_sha256": null,
+    "execution": {
+      "requires_safe_mode": false,
+      "requires_reboot": true,
+      "silent_flags": "/silent",
+      "force_flags": "/RemoveOnly",
+      "cli_only": false
+    },
+    "notes": "Current Norton 360 Remover binary (also reachable via https://www.norton.com/nortonremover). Choose Remove in UI to skip reinstallation."
+  },
+  {
+    "id": "sophos-zap",
+    "vendor": "Sophos",
+    "tool_name": "SophosZap",
+    "official_docs_url": "https://support.sophos.com/support/s/article/KB-000038989",
+    "tier": "enterprise",
+    "supported_products": [
+      "Sophos Endpoint Protection",
+      "Sophos Intercept X",
+      "Sophos Central Endpoint",
+      "Sophos Server Protection"
+    ],
+    "download_url": "https://download.sophos.com/tools/SophosZap.exe",
+    "file_type": "exe",
+    "expected_sha256": null,
+    "execution": {
+      "requires_safe_mode": false,
+      "requires_reboot": true,
+      "silent_flags": "--confirm",
+      "force_flags": "--confirm",
+      "cli_only": true
+    },
+    "notes": "Last-resort CLI cleanup tool. Disable Tamper Protection first, run SophosZap --confirm from an elevated prompt, reboot, and re-run if prompted."
+  }
+]

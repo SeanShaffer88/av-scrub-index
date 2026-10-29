@@ -1,0 +1,24 @@
+{
+  "id": "mcafee-mcpr",
+  "vendor": "McAfee",
+  "tool_name": "McAfee Consumer Product Removal Tool (MCPR)",
+  "official_docs_url": "https://www.mcafee.com/support/?articleId=TS101331&page=shell&shell=article-view",
+  "tier": "consumer",
+  "supported_products": [
+    "McAfee LiveSafe",
+    "McAfee Total Protection",
+    "McAfee AntiVirus Plus",
+    "McAfee Internet Security"
+  ],
+  "download_url": "https://download.mcafee.com/molbin/iss-loc/SupportTools/MCPR/MCPR.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": null,
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Interactive GUI requires security CAPTCHA validation; extracted mccleanup.exe inside %TEMP% supports unattended -p/-v/-s flags."
+}

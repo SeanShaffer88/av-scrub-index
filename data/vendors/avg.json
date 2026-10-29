@@ -1,0 +1,23 @@
+{
+  "id": "avg-clear",
+  "vendor": "AVG",
+  "tool_name": "AVG Clear",
+  "official_docs_url": "https://www.avg.com/en-us/avg-remover",
+  "tier": "consumer",
+  "supported_products": [
+    "AVG AntiVirus FREE",
+    "AVG Internet Security",
+    "AVG Ultimate"
+  ],
+  "download_url": "https://honzik.avcdn.net/setup/avg-av/release/avg_av_clear.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": true,
+    "requires_reboot": true,
+    "silent_flags": "/silent",
+    "force_flags": null,
+    "cli_only": false
+  },
+  "notes": "Official AVG removal utility served from Gen Digital CDN. Recommended to execute in Windows Safe Mode; supports /silent flag."
+}

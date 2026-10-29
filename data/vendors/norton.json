@@ -1,0 +1,24 @@
+{
+  "id": "norton-remover",
+  "vendor": "Norton",
+  "tool_name": "Norton 360 Remover (NRnR)",
+  "official_docs_url": "https://support.norton.com/sp/en/us/home/current/solutions/v20240301142500636",
+  "tier": "consumer",
+  "supported_products": [
+    "Norton 360",
+    "Norton AntiVirus Plus",
+    "Norton Security",
+    "Norton Internet Security"
+  ],
+  "download_url": "https://honzik.avcdn.net/setup/norton-suite/release/norton_360_remover.exe",
+  "file_type": "exe",
+  "expected_sha256": null,
+  "execution": {
+    "requires_safe_mode": false,
+    "requires_reboot": true,
+    "silent_flags": "/silent",
+    "force_flags": "/RemoveOnly",
+    "cli_only": false
+  },
+  "notes": "Current Norton 360 Remover binary (also reachable via https://www.norton.com/nortonremover). Choose Remove in UI to skip reinstallation."
+}

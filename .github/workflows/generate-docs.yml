@@ -1,0 +1,37 @@
+name: Compile & Documentation
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile Distributable JSON
+        run: python scripts/compile-dist.py
+
+      - name: Render README
+        run: python scripts/generate-readme.py
+
+      - name: Commit If Changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist/ README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(auto): rebuild dist and sync README [skip ci]"
+            git push
+          fi
