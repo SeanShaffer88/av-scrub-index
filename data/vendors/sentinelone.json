@@ -2,7 +2,7 @@
   "id": "sentinelone-cleaner",
   "vendor": "SentinelOne",
   "tool_name": "SentinelCleaner",
-  "official_docs_url": "https://support.sentinelone.com/",
+  "official_docs_url": "https://community.sentinelone.com/",
   "distribution": "portal_gated",
   "tier": "enterprise",
   "supported_products": [
@@ -18,5 +18,5 @@
     "force_flags": null,
     "cli_only": true
   },
-  "notes": "Obtained via SentinelOne Management Console or Support; SentinelCleaner must be executed from Windows Safe Mode when standard passphrase uninstall fails."
+  "notes": "Obtained via SentinelOne Customer Portal / Management Console; SentinelCleaner must be executed from Windows Safe Mode when standard passphrase uninstall fails."
 }

@@ -467,7 +467,7 @@
     "id": "sentinelone-cleaner",
     "vendor": "SentinelOne",
     "tool_name": "SentinelCleaner",
-    "official_docs_url": "https://support.sentinelone.com/",
+    "official_docs_url": "https://community.sentinelone.com/",
     "distribution": "portal_gated",
     "tier": "enterprise",
     "supported_products": [
@@ -483,7 +483,7 @@
       "force_flags": null,
       "cli_only": true
     },
-    "notes": "Obtained via SentinelOne Management Console or Support; SentinelCleaner must be executed from Windows Safe Mode when standard passphrase uninstall fails."
+    "notes": "Obtained via SentinelOne Customer Portal / Management Console; SentinelCleaner must be executed from Windows Safe Mode when standard passphrase uninstall fails."
   },
   {
     "id": "sophos-zap",
@@ -513,7 +513,7 @@
     "id": "trellix-epr",
     "vendor": "Trellix (McAfee Enterprise)",
     "tool_name": "Endpoint Product Removal Tool (EPR)",
-    "official_docs_url": "https://kcm.trellix.com/corporate/index?page=content&id=KB90895&locale=en_US",
+    "official_docs_url": "https://thrive.trellix.com/",
     "distribution": "portal_gated",
     "tier": "enterprise",
     "supported_products": [
@@ -533,7 +533,7 @@
       "force_flags": "--accepteula --ALL --BRUTEFORCE=MFEDEEPREM_FOLDER_ATP_STOP",
       "cli_only": false
     },
-    "notes": "Requires active Trellix Grant Number (KB90895). EPR binaries have a built-in ~90-day security expiration window and must be refreshed periodically."
+    "notes": "Requires active Trellix Grant Number via Trellix Support Portal (KB90895). EPR binaries have a built-in ~90-day security expiration window and must be refreshed periodically."
   },
   {
     "id": "trendmicro-cut",
