@@ -83,17 +83,17 @@
       "ESET Endpoint Security",
       "ESET Server Security"
     ],
-    "download_url": "https://download.eset.com/com/eset/tools/installers/eset_apps_remover/latest/esetuninstaller.exe",
+    "download_url": "https://download.eset.com/com/eset/tools/installers/eset_apps_remover/latest/uninstaller.exe",
     "file_type": "exe",
     "expected_sha256": null,
     "execution": {
       "requires_safe_mode": true,
       "requires_reboot": true,
-      "silent_flags": null,
+      "silent_flags": "/force",
       "force_flags": "/force",
       "cli_only": true
     },
-    "notes": "Console-based utility that must be executed from Windows Safe Mode. Supports /force and /reinst switches."
+    "notes": "Console-based utility that must be executed from Windows Safe Mode. Pass /force for unprompted removal; /reinst also resets network interfaces."
   },
   {
     "id": "kaspersky-kavremover",
