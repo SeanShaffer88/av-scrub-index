@@ -35,6 +35,7 @@ def probe_url(entry: dict[str, Any], timeout: int = 12) -> dict[str, Any]:
         "id": entry.get("id"),
         "vendor": entry.get("vendor"),
         "tool_name": entry.get("tool_name"),
+        "file": entry.get("_file"),
         "url": url,
         "ok": False,
         "status_code": None,
@@ -79,12 +80,21 @@ def probe_url(entry: dict[str, Any], timeout: int = 12) -> dict[str, Any]:
                 else:
                     result["ok"] = True
         else:
-            # First attempt HTTP HEAD; fall back to streaming GET for stubborn CDNs
-            resp = requests.head(
-                url, headers=HEADERS, allow_redirects=True, timeout=timeout
-            )
-            if resp.status_code in (400, 403, 405):
+            # First attempt HTTP HEAD; fall back to streaming GET for CDNs that reject HEAD
+            head_ok = False
+            try:
+                resp = requests.head(
+                    url, headers=HEADERS, allow_redirects=True, timeout=timeout
+                )
+                result["status_code"] = resp.status_code
+                head_ok = 200 <= resp.status_code < 400
                 resp.close()
+            except requests.RequestException:
+                head_ok = False
+
+            if head_ok:
+                result["ok"] = True
+            else:
                 with requests.get(
                     url,
                     headers=HEADERS,
@@ -94,10 +104,6 @@ def probe_url(entry: dict[str, Any], timeout: int = 12) -> dict[str, Any]:
                 ) as get_resp:
                     result["status_code"] = get_resp.status_code
                     result["ok"] = 200 <= get_resp.status_code < 400
-            else:
-                result["status_code"] = resp.status_code
-                result["ok"] = 200 <= resp.status_code < 400
-                resp.close()
     except Exception as exc:  # noqa: BLE001
         result["error"] = str(exc)
 
@@ -235,7 +241,9 @@ def main(argv: list[str] | None = None) -> int:
     entries: list[dict[str, Any]] = []
     for file_path in files:
         with file_path.open("r", encoding="utf-8") as handle:
-            entries.append(json.load(handle))
+            entry = json.load(handle)
+            entry["_file"] = os.path.relpath(file_path, REPO_ROOT)
+            entries.append(entry)
 
     print(f"[*] Probing {len(entries)} vendor download URL(s)...")
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
@@ -249,11 +257,16 @@ def main(argv: list[str] | None = None) -> int:
     with args.output.open("w", encoding="utf-8") as out:
         json.dump(results, out, indent=2)
 
+    in_gha = os.environ.get("GITHUB_ACTIONS") == "true"
     for fail in failures:
-        print(
-            f"[ERROR] {fail['vendor']} - {fail['tool_name']}: "
+        msg = (
+            f"{fail['vendor']} - {fail['tool_name']}: "
             f"{fail['url']} (Status: {fail['status_code']} | Err: {fail['error']})"
         )
+        print(f"[ERROR] {msg}")
+        if in_gha:
+            file_part = f"file={fail['file']}," if fail.get("file") else ""
+            print(f"::error {file_part}title=Broken Download URL::{msg}")
 
     if failures:
         return 1

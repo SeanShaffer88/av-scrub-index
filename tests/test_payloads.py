@@ -162,7 +162,13 @@ class TestLinkChecker(unittest.TestCase):
 
     def test_head_404_fails(self) -> None:
         head_resp = MagicMock(status_code=404)
-        with patch.object(links_mod.requests, "head", return_value=head_resp):
+        get_resp = MagicMock(status_code=404)
+        get_resp.__enter__.return_value = get_resp
+        get_resp.__exit__.return_value = False
+        with (
+            patch.object(links_mod.requests, "head", return_value=head_resp),
+            patch.object(links_mod.requests, "get", return_value=get_resp),
+        ):
             res = links_mod.probe_url(
                 {"id": "t", "vendor": "V", "tool_name": "T", "download_url": "https://example.com/dead.exe"}
             )
